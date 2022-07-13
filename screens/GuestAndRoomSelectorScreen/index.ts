@@ -1,1 +1,1 @@
-export {GuestAndRoomSelectorScreen} from './GuestAndRoomSelectorScreen'
+export {GuestAndRoomSelectorScreen} from './GuestAndRoomSelectorScreen';

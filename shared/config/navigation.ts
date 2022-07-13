@@ -1,6 +1,6 @@
 export enum EScreens {
   HOME_SCREEN = 'HomeScreen',
- GUEST_AND_ROOM_SELECTOR_SCREEN = 'GuestAndRoomSelector',
+  GUEST_AND_ROOM_SELECTOR_SCREEN = 'GuestAndRoomSelector',
 }
 
 export type RootStackParamList = {

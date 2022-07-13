@@ -17,7 +17,7 @@ export const ShadowOpacities: Record<EShadow, number> = {
 export const makeShadow = (
   shadow?: EShadow,
   color: string = 'rgba(0,0,0,0.8)',
-): Shadow | {} =>
+): Shadow | object =>
   shadow
     ? {
         elevation: `${ShadowsSizes[shadow]}`,
