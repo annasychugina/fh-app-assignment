@@ -11,7 +11,7 @@ export const ShadowsSizes: Record<EShadow, number> = {
   [EShadow.S]: 1,
 };
 export const ShadowOpacities: Record<EShadow, number> = {
-  [EShadow.S]: 0.5,
+  [EShadow.S]: 0.2,
 };
 
 export const makeShadow = (
