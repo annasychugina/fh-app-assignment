@@ -5,7 +5,7 @@ import {RootStackParamList} from '../../shared/config';
 import {Colors} from '../../shared/lib/theme';
 import {Button} from '../../shared/ui/Button';
 import {Header} from '../../shared/ui/Header';
-import {IconClose} from '../../shared/ui/icons';
+import {IconClose, IconSearch} from '../../shared/ui/icons';
 import {Container} from './styles';
 
 type Props = {
@@ -32,6 +32,7 @@ export const HomeScreen = ({navigation}: Props) => {
         floating
         title={strings.buttonText}
         onPress={handlePress}
+        leftIcon={<IconSearch />}
       />
     </Container>
   );

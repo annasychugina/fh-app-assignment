@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {ReactNode, useMemo} from 'react';
 import {
   View,
   Pressable,
@@ -23,6 +23,7 @@ type ButtonProps = {
   loading?: boolean;
   style?: StyleProp<ViewStyle>;
   containerStyle?: StyleProp<ViewStyle>;
+  leftIcon?: ReactNode;
 } & Color;
 
 export const HEIGHT = 48;
@@ -49,6 +50,9 @@ export const Button: React.FC<ButtonProps> = props => {
       <View />
     ) : (
       <View style={[styles.content]}>
+        {props.leftIcon && (
+            <View style={styles.leftIconContainer}>{props.leftIcon}</View>
+        )}
         <Text style={textStyle} numberOfLines={1}>
           {props.title}
         </Text>
@@ -92,6 +96,9 @@ const styles = StyleSheet.create({
   },
   primary: {
     backgroundColor: Colors.blueRibbon,
+  },
+  leftIconContainer: {
+    paddingRight: 3,
   },
   white: {
     color: Colors.white,
