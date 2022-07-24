@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import {Colors} from '../../lib/theme';
+import {rem} from "../helpers";
 
 export type Primary = {primary: true};
 export type Floating = {floating: true};
@@ -51,7 +52,7 @@ export const Button: React.FC<ButtonProps> = props => {
     ) : (
       <View style={[styles.content]}>
         {props.leftIcon && (
-            <View style={styles.leftIconContainer}>{props.leftIcon}</View>
+          <View style={styles.leftIconContainer}>{props.leftIcon}</View>
         )}
         <Text style={textStyle} numberOfLines={1}>
           {props.title}
@@ -98,21 +99,21 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.blueRibbon,
   },
   leftIconContainer: {
-    paddingRight: 3,
+    paddingRight: rem(3),
   },
   white: {
     color: Colors.white,
-    fontSize: 16,
+    fontSize: rem(16),
     lineHeight: 24,
-    fontWeight: '400',
+    fontWeight: '600',
   },
   floating: {
     position: 'absolute',
-    left: 16,
-    right: 16,
+    left: rem(16),
+    right: rem(16),
     bottom: marginBottom,
   },
   black: {
-    color: Colors.black,
+    color: Colors.ebonyClay,
   },
 });

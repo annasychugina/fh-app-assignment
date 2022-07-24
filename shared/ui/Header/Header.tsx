@@ -9,7 +9,7 @@ import {StyledHeaderBackButton} from './components';
 import {HEADER_HEIGHT} from './const';
 import {StyledContentView, Container, StyledBlock} from './styles';
 
-const {TitleSemiBold} = Typography;
+const {TitleBold} = Typography;
 
 export type HeaderProps = {
   style?: StyleProp<ViewStyle>;
@@ -37,9 +37,9 @@ export const Header = ({
         <StyledBlock />
       )}
       <StyledContentView>
-        <TitleSemiBold numberOfLines={1} flexShrink={1} color={color}>
+        <TitleBold numberOfLines={1} flexShrink={1} color={color}>
           {title}
-        </TitleSemiBold>
+        </TitleBold>
       </StyledContentView>
       {children}
     </Container>

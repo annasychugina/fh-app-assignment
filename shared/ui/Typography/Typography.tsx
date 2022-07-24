@@ -14,7 +14,7 @@ export interface ColoredTextProps {
 const ColoredText = styled(
   Text as ComponentType<TextProps & ColoredTextProps & {lineHeight?: number}>,
 )(({color, textAlign, flexShrink, lineHeight}) => ({
-  color: color || Colors.black,
+  color: color || Colors.ebonyClay,
   textAlign: (textAlign || 'left') as never,
   lineHeight,
   flexShrink,
@@ -30,13 +30,16 @@ export const createFS = (fontSize: number, lineHeight: number) => ({
 const regular = styled(ColoredText)({});
 
 const bold = styled(ColoredText)({
-  fontWeight: 'bold',
+  fontWeight: 600,
+  fontFamily: 'Inter',
 });
 
-const TitleSemiBold = styled(bold)(createFS(16, 20));
+const TitleBold = styled(bold)(createFS(16, 20));
 const TitleRegular = styled(regular)(createFS(16, 24));
+const TitleLabel = styled(bold)(createFS(16, 24));
 
 export const Typography = {
-  TitleSemiBold,
+  TitleBold,
   TitleRegular,
+  TitleLabel,
 };

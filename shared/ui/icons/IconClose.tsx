@@ -1,18 +1,32 @@
 import React from 'react';
-import {Path, Svg} from 'react-native-svg';
+import {Path, Svg, SvgProps} from 'react-native-svg';
 
 import {Colors} from '../../lib/theme';
+import {rem} from '../helpers';
 
-type Props = {
-  size?: number;
+const defaultColor = Colors.white;
+
+export type IconProps = {
   color?: string;
-};
+  height?: number;
+  width?: number;
+  gradientColors?: (string | number)[];
+} & SvgProps;
 
-export const IconClose: React.FC<Props> = ({size, color = Colors.black}) => {
+export const IconClose: React.FC<IconProps> = ({
+  width = 24,
+  height = 24,
+  color = defaultColor,
+  ...props
+}) => {
+  const remWidth = rem(width);
+  const remHeight = rem(height);
   return (
-    <Svg width={size ? size : 24} height={size ? size : 24} viewBox="0 0 24 24">
+    <Svg width={remWidth} height={remHeight} fill="none" {...props}>
       <Path
-        d="M11.358 0.357736C11.8252 0.824952 11.8252 1.58246 11.358 2.04967L7.69215 5.71554L11.358 9.38141C11.8252 9.84862 11.8252 10.6061 11.358 11.0733C10.8908 11.5406 10.1333 11.5406 9.66607 11.0733L6.00021 7.40748L2.33434 11.0733C1.86713 11.5406 1.10962 11.5406 0.642404 11.0733C0.175188 10.6061 0.175188 9.84862 0.642404 9.38141L4.30827 5.71554L0.642404 2.04967C0.175188 1.58246 0.175188 0.824952 0.642404 0.357736C1.10962 -0.10948 1.86713 -0.10948 2.33434 0.357736L6.00021 4.0236L9.66608 0.357736C10.1333 -0.10948 10.8908 -0.10948 11.358 0.357736Z"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"
         fill={color}
       />
     </Svg>
