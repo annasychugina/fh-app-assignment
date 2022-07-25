@@ -30,13 +30,9 @@ export const HomeScreen = ({navigation}: Props) => {
         title={strings.headerTitle}
         backIcon={<IconClose color={Colors.blueRibbon} />}
       />
-
-      <ContentWrapper>
-        <GuestRoomSelectorContainer>
-          <GuestRoomSelector />
-        </GuestRoomSelectorContainer>
-      </ContentWrapper>
-
+      <SelectorWrapper>
+        <GuestRoomSelector />
+      </SelectorWrapper>
       <Button
         primary
         floating
@@ -48,10 +44,8 @@ export const HomeScreen = ({navigation}: Props) => {
   );
 };
 
-export const GuestRoomSelectorContainer = styled.View({
-  marginTop: rem(22),
-});
-
-export const ContentWrapper = styled.View({
-  paddingHorizontal: rem(16),
+export const SelectorWrapper = styled.View({
+  flex: 1,
+  padding: rem(16),
+  marginBottom: rem(20),
 });

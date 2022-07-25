@@ -1,25 +1,33 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ScrollView} from 'react-native';
 
 import {Button} from '../../shared/ui/Button';
-import {Typography} from '../../shared/ui/Typography';
 import {IconPlus} from '../../shared/ui/icons';
-import {Counter} from './Counter';
-
-const {Title1} = Typography;
+import {SelectRoomItem} from './components/SelectRoomItem/SelectRoomItem';
 
 const strings = {
   title: 'Room 1',
   buttonTitle: 'Add room',
+  titleAdults: 'Adults',
+  titleChildren: 'Children',
 };
+
+const map = [{id: '1'}, {id: '2'}];
 
 export const GuestRoomSelector = () => {
   return (
-    <View>
-      <Title1>{strings.title}</Title1>
-      <Counter key="adultsCounter" onSetCount={() => {}} />
-      <Counter key="childrenCounter" onSetCount={() => {}} />
+    <>
+      <ScrollView showsHorizontalScrollIndicator={false}>
+        {map?.map((item, index) => (
+          <SelectRoomItem
+            key={item.id}
+            id={item.id}
+            index={index}
+            item={item}
+          />
+        ))}
+      </ScrollView>
       <Button secondary title={strings.buttonTitle} leftIcon={<IconPlus />} />
-    </View>
+    </>
   );
 };
