@@ -6,6 +6,9 @@ module.exports = function(api) {
       development: {
         plugins: ['babel-plugin-styled-components'],
       },
+      production: {
+        plugins: ['react-native-paper/babel'],
+      },
     },
   };
 };

@@ -1,10 +1,13 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useCallback} from 'react';
+import styled from 'styled-components/native';
 
+import {GuestRoomSelector} from '../../features/guest-room-selector';
 import {RootStackParamList} from '../../shared/config';
 import {Colors} from '../../shared/lib/theme';
 import {Button} from '../../shared/ui/Button';
 import {Header} from '../../shared/ui/Header';
+import {rem} from '../../shared/ui/helpers';
 import {IconClose, IconSearch} from '../../shared/ui/icons';
 import {Container} from './styles';
 
@@ -27,6 +30,13 @@ export const HomeScreen = ({navigation}: Props) => {
         title={strings.headerTitle}
         backIcon={<IconClose color={Colors.blueRibbon} />}
       />
+
+      <ContentWrapper>
+        <GuestRoomSelectorContainer>
+          <GuestRoomSelector />
+        </GuestRoomSelectorContainer>
+      </ContentWrapper>
+
       <Button
         primary
         floating
@@ -37,3 +47,11 @@ export const HomeScreen = ({navigation}: Props) => {
     </Container>
   );
 };
+
+export const GuestRoomSelectorContainer = styled.View({
+  marginTop: rem(22),
+});
+
+export const ContentWrapper = styled.View({
+  paddingHorizontal: rem(16),
+});

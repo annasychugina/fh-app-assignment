@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 
 import {Colors} from '../../lib/theme';
-import {rem} from "../helpers";
+import {rem} from '../helpers';
 
 export type Primary = {primary: true};
 export type Floating = {floating: true};
-export type Color = Primary | Floating;
+export type Secondary = {secondary: true};
+export type Color = Primary | Floating | Secondary;
 
 type ButtonProps = {
   title: string;
@@ -36,13 +37,18 @@ export const Button: React.FC<ButtonProps> = props => {
     if (props.disabled) {
       if ('primary' in props)
         return StyleSheet.flatten([styles.primary, styles.disabled]);
+
+      if ('secondary' in props)
+        return StyleSheet.flatten([styles.secondary, styles.disabled]);
     }
     if ('primary' in props) return styles.primary;
+    if ('secondary' in props) return styles.secondary;
     return {};
   }, [props]);
 
   const textStyle: TextStyle = useMemo(() => {
-    if ('white' in props) return styles.white;
+    if ('primary' in props) return styles.white;
+    if ('secondary' in props) return styles.blueRibbon;
     return styles.white;
   }, [props]);
 
@@ -98,11 +104,26 @@ const styles = StyleSheet.create({
   primary: {
     backgroundColor: Colors.blueRibbon,
   },
+  secondary: {
+    backgroundColor: Colors.aliceBlue,
+    borderWidth: 1,
+
+    borderColor: Colors.tropicalBlue,
+    color: Colors.blueRibbon,
+    fontSize: rem(16),
+    lineHeight: 24,
+  },
   leftIconContainer: {
     paddingRight: rem(3),
   },
   white: {
     color: Colors.white,
+    fontSize: rem(16),
+    lineHeight: 24,
+    fontWeight: '600',
+  },
+  blueRibbon: {
+    color: Colors.blueRibbon,
     fontSize: rem(16),
     lineHeight: 24,
     fontWeight: '600',

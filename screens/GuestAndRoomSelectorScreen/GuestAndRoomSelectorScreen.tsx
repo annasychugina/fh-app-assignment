@@ -8,5 +8,5 @@ type Props = {
 };
 
 export const GuestAndRoomSelectorScreen = ({navigation}: Props) => {
-  return null;
+  return null
 };
