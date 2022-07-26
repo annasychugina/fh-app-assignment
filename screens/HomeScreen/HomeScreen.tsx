@@ -2,45 +2,50 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useCallback} from 'react';
 import styled from 'styled-components/native';
 
-import {GuestRoomSelector} from '../../features/guest-room-selector';
-import {RootStackParamList} from '../../shared/config';
-import {Colors} from '../../shared/lib/theme';
+import {EScreens, RootStackParamList} from '../../shared/config';
 import {Button} from '../../shared/ui/Button';
-import {Header} from '../../shared/ui/Header';
 import {rem} from '../../shared/ui/helpers';
-import {IconClose, IconSearch} from '../../shared/ui/icons';
-import {Container} from './styles';
+import {IconGuests} from '../../shared/ui/icons/IconGuests';
+import {
+  Content,
+  ContentWrapper,
+  ImageBackDrop,
+  StyledLogo,
+  StyledTitle,
+} from './styles';
 
 type Props = {
   navigation: StackNavigationProp<RootStackParamList>;
 };
 
 const strings = {
-  headerTitle: 'Who is staying?',
-  buttonText: 'Search',
+  title: '"Find the perfect\n deal, always."',
+  buttonText: 'Select guests',
 };
 
 export const HomeScreen = ({navigation}: Props) => {
   const handlePress = useCallback(() => {
-    console.log('PRESS');
+    navigation.navigate(EScreens.GUEST_AND_ROOM_SELECTOR_SCREEN);
   }, []);
   return (
-    <Container>
-      <Header
-        title={strings.headerTitle}
-        backIcon={<IconClose color={Colors.blueRibbon} />}
-      />
-      <SelectorWrapper>
-        <GuestRoomSelector />
-      </SelectorWrapper>
-      <Button
-        primary
-        floating
-        title={strings.buttonText}
-        onPress={handlePress}
-        leftIcon={<IconSearch />}
-      />
-    </Container>
+    <>
+      <ImageBackDrop source={require('../../assets/home.png')}>
+        <Content>
+          <StyledLogo />
+          <StyledTitle>{strings.title}</StyledTitle>
+          <ContentWrapper>
+            <Button
+              title={strings.buttonText}
+              primary
+              onPress={handlePress}
+              leftIcon={<IconGuests />}
+            />
+          </ContentWrapper>
+
+          <ContentWrapper />
+        </Content>
+      </ImageBackDrop>
+    </>
   );
 };
 

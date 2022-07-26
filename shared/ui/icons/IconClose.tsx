@@ -10,7 +10,6 @@ export type IconProps = {
   color?: string;
   height?: number;
   width?: number;
-  gradientColors?: (string | number)[];
 } & SvgProps;
 
 export const IconClose: React.FC<IconProps> = ({
