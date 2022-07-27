@@ -1,20 +1,42 @@
 import {NavigationContainer} from '@react-navigation/native';
+import {configureStore, EntityState} from '@reduxjs/toolkit';
 import {StatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native';
+import {Provider} from 'react-redux';
+import {combineReducers} from 'redux';
 import styled from 'styled-components/native';
 
 import {Root} from './app/navigators/Root';
+import {
+  GuestsInfo,
+  guestsReducer,
+} from './features/guest-room-selector/guestsSlice';
 import {Colors} from './shared/lib/theme';
+
+interface RootState {
+  guests: GuestsInfo;
+}
+
+export const rootReducer = combineReducers<RootState>({
+  guests: guestsReducer,
+});
+
+const store = configureStore({
+  reducer: rootReducer,
+});
+
 export default function App() {
   return (
-    <StyledContainer>
-      <NavigationContainer>
-        <Container>
-          <StatusBar style="auto" />
-          <Root />
-        </Container>
-      </NavigationContainer>
-    </StyledContainer>
+    <Provider store={store}>
+      <StyledContainer>
+        <NavigationContainer>
+          <Container>
+            <StatusBar style="auto" />
+            <Root />
+          </Container>
+        </NavigationContainer>
+      </StyledContainer>
+    </Provider>
   );
 }
 
