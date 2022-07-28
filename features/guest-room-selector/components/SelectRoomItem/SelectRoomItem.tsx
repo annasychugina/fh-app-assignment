@@ -1,5 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
+import {Divider} from 'react-native-paper';
 import {useDispatch} from 'react-redux';
 
 import {Colors} from '../../../../shared/lib/theme';
@@ -14,7 +15,14 @@ import {
 } from '../../guestsSlice';
 import {ChildAgeItem} from '../ChildAgeItem/ChildAgeItem';
 import {GuestCounter} from '../GuestsCounter/GuestsCounter';
-import {Container, StyledDivider, TitleWrapper} from './styles';
+import {
+  Container,
+  StyledDivider,
+  TitleWrapper,
+  ChildAgeWrapper,
+  ChildAgeBlock,
+  StyledVerticalDivider,
+} from './styles';
 
 const {Title1} = Typography;
 
@@ -94,12 +102,17 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
         title={strings.adults}
         onSetCount={handleSetAdultsCount}
       />
+
       <GuestCounter
         count={item.childrenCount}
         title={strings.children}
         onSetCount={handleSetChildrenCount}>
         {childrenAges.length > 0 && (
-          <View>{item.childrenAges?.map(renderChildAge)}</View>
+          <ChildAgeBlock>
+            <StyledVerticalDivider
+            />
+            {item.childrenAges?.map(renderChildAge)}
+          </ChildAgeBlock>
         )}
       </GuestCounter>
       <StyledDivider />

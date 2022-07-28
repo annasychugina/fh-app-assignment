@@ -41,8 +41,6 @@ export const HomeScreen = ({navigation}: Props) => {
               leftIcon={<IconGuests />}
             />
           </ContentWrapper>
-
-          <ContentWrapper />
         </Content>
       </ImageBackDrop>
     </>
@@ -52,5 +50,6 @@ export const HomeScreen = ({navigation}: Props) => {
 export const SelectorWrapper = styled.View({
   flex: 1,
   padding: rem(16),
+  paddingTop: 0,
   marginBottom: rem(20),
 });

@@ -10,7 +10,7 @@ interface Props {
   count?: number;
   minVal?: number;
   maxVal?: number;
-  onSetCount: (number: number) => any;
+  onSetCount: (number: number) => void;
 }
 
 export const Counter: React.FC<Props> = ({

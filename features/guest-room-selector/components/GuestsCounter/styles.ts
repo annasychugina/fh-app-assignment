@@ -1,5 +1,7 @@
 import styled from 'styled-components/native';
 
+import {rem} from '../../../../shared/ui/helpers';
+
 export const Container = styled.View({
   flex: 1,
 });
@@ -12,8 +14,8 @@ export const ContentWrapper = styled.View({
 });
 
 export const StyledView = styled.View({
-  flex: 0.5,
   justifyContent: 'flex-start',
   alignItems: 'flex-end',
-  paddingVertical: 4,
+  paddingVertical: rem(2),
+  marginRight: -rem(6),
 });

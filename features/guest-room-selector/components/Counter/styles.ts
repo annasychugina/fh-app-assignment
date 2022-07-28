@@ -5,13 +5,13 @@ import {Colors} from '../../../../shared/lib/theme';
 import {rem} from '../../../../shared/ui/helpers';
 
 export const StyledIconButton = styled(IconButton)({
-  borderWidth: 0.5,
+  borderWidth: 0.8,
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
   borderRadius: 4,
   backgroundColor: Colors.aliceBlue,
-  borderColor: Colors.blueRibbon,
+  borderColor: Colors.tropicalBlue,
 });
 
 export const Container = styled.View({

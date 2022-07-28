@@ -10,8 +10,8 @@ export const StyledDropDown = styled(RNDropdown).attrs(() => ({
     height: rem(40),
     borderRadius: 8,
     backgroundColor: Colors.white,
-    borderWidth: 0.6,
-    borderColor: Colors.spindle,
+    borderWidth: 0.8,
+    borderColor: Colors.tropicalBlue,
   },
   buttonTextStyle: {
     color: Colors.ebonyClay,
