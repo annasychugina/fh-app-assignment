@@ -6,16 +6,20 @@ import {Colors} from '../../lib/theme';
 import {StyledDropDown} from './styles';
 
 type Props = {
-  data: number[] | string[];
-} & SelectDropdownProps;
+  data: number[];
+  onSelect: (selected: number, index: number) => void;
+} & Omit<
+  SelectDropdownProps,
+  'buttonTextAfterSelection' | 'rowTextForSelection'
+>;
 
 export const Dropdown: React.FC<Props> = ({
   data,
   onSelect,
   defaultButtonText,
 }) => {
-  const handleSelect = (selectedItem, index) => {
-    onSelect(selectedItem, index);
+  const handleSelect = (selected: number, index: number) => {
+    onSelect(selected, index);
   };
 
   const renderDropdownIcon = (opened: boolean) => {
@@ -36,6 +40,12 @@ export const Dropdown: React.FC<Props> = ({
       defaultButtonText={defaultButtonText}
       onSelect={handleSelect}
       renderDropdownIcon={renderDropdownIcon}
+      buttonTextAfterSelection={selectedItem => {
+        return selectedItem;
+      }}
+      rowTextForSelection={item => {
+        return item;
+      }}
     />
   );
 };

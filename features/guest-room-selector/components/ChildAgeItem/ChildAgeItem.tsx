@@ -10,24 +10,40 @@ const {TitleBold} = Typography;
 
 type Props = {
   age: number;
+  index: number;
+  onSelect: (count: number) => void;
+  onRemove: () => void;
 };
 
 const strings = {
-  title: 'Child Age',
   buttonText: 'Age',
 };
 
-const ages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+const childPossibleAges = Array.from({length: 18}, (_, i) => i + 1);
 
-export const ChildAgeItem: React.FC<Props> = ({age}) => {
+export const ChildAgeItem: React.FC<Props> = ({
+  age,
+  index,
+  onSelect,
+  onRemove,
+}) => {
   return (
     <Container>
-      <TitleBold>{strings.title}</TitleBold>
+      <TitleBold>{`Child ${index + 1} age`}</TitleBold>
       <DropDownWrapper>
-        <Dropdown data={ages} defaultButtonText={strings.buttonText} />
+        <Dropdown
+          data={childPossibleAges}
+          defaultButtonText={strings.buttonText}
+          onSelect={onSelect}
+        />
       </DropDownWrapper>
 
-      <IconButton icon="close" color={Colors.valencia} size={24} />
+      <IconButton
+        icon="close"
+        color={Colors.valencia}
+        size={24}
+        onPress={onRemove}
+      />
     </Container>
   );
 };

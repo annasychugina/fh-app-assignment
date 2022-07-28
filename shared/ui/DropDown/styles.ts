@@ -21,4 +21,4 @@ export const StyledDropDown = styled(RNDropdown).attrs(() => ({
     fontWeight: '600',
   },
   dropdownStyle: {backgroundColor: Colors.white},
-}))({});
+}))``;

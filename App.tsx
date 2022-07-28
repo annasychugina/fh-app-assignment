@@ -8,13 +8,13 @@ import styled from 'styled-components/native';
 
 import {Root} from './app/navigators/Root';
 import {
-  GuestsInfo,
+  GuestsInfoState,
   guestsReducer,
 } from './features/guest-room-selector/guestsSlice';
 import {Colors} from './shared/lib/theme';
 
-interface RootState {
-  guests: GuestsInfo;
+export interface RootState {
+  guests: GuestsInfoState;
 }
 
 export const rootReducer = combineReducers<RootState>({

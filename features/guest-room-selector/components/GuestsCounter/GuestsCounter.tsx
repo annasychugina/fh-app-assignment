@@ -7,17 +7,20 @@ import {Container, ContentWrapper, StyledView} from './styles';
 const {TitleBold} = Typography;
 interface GuestCounterProps {
   title: string;
-  count?: number;
+  count: number;
   onSetCount: (number: number) => void;
 }
 
+const MIN_COUNT = 0
+const MAX_COUNT = 2
+
 export const GuestCounter: React.FC<GuestCounterProps> = ({
-  count = 1,
+  count,
   title,
   children,
   onSetCount,
 }) => {
-  const handleSetCount = (value) => {
+  const handleSetCount = (value: number) => {
     onSetCount(value);
   };
   return (
@@ -26,10 +29,10 @@ export const GuestCounter: React.FC<GuestCounterProps> = ({
         <TitleBold>{title}</TitleBold>
         <StyledView>
           <Counter
-            count={2}
+            count={count}
+            minVal={MIN_COUNT}
+            maxVal={MAX_COUNT}
             onSetCount={handleSetCount}
-            minVal={0}
-            maxVal={2}
           />
         </StyledView>
       </ContentWrapper>
