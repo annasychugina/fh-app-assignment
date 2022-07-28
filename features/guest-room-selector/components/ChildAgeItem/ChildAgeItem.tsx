@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {IconButton} from 'react-native-paper';
 
 import {Colors} from '../../../../shared/lib/theme';
@@ -15,10 +16,6 @@ type Props = {
   onRemove: () => void;
 };
 
-const strings = {
-  buttonText: 'Age',
-};
-
 const childPossibleAges = Array.from({length: 18}, (_, i) => i + 1);
 
 export const ChildAgeItem: React.FC<Props> = ({
@@ -27,13 +24,16 @@ export const ChildAgeItem: React.FC<Props> = ({
   onSelect,
   onRemove,
 }) => {
+  const {t} = useTranslation();
   return (
     <Container>
-      <TitleBold>{`Child ${index + 1} age`}</TitleBold>
+      <TitleBold>
+        {t('guestsSelector.childAgeTitle', {count: index + 1})}
+      </TitleBold>
       <DropDownWrapper>
         <Dropdown
           data={childPossibleAges}
-          defaultButtonText={strings.buttonText}
+          defaultButtonText={t('guestsSelector.childAgeSelectorText')}
           onSelect={onSelect}
         />
       </DropDownWrapper>

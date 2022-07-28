@@ -11,8 +11,8 @@ interface GuestCounterProps {
   onSetCount: (number: number) => void;
 }
 
-const MIN_COUNT = 0
-const MAX_COUNT = 2
+const MIN_COUNT = 0;
+const MAX_COUNT = 2;
 
 export const GuestCounter: React.FC<GuestCounterProps> = ({
   count,

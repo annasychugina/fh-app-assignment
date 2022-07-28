@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {useTranslation} from 'react-i18next';
 import {ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -15,16 +16,10 @@ import {
 } from './guestsSlice';
 import {ButtonWrapper} from './styles';
 
-const strings = {
-  title: 'Room 1',
-  buttonTitle: 'Add room',
-  titleAdults: 'Adults',
-  titleChildren: 'Children',
-};
-
 const MAX_ROOMS_COUNT = 7;
 
 export const GuestRoomSelector = () => {
+  const {t} = useTranslation();
   const scrollView = useRef<ScrollView>(null);
   const dispatch = useDispatch();
   const guestsInfos = useSelector(selectAllGuestsInfos);
@@ -65,7 +60,7 @@ export const GuestRoomSelector = () => {
       <ButtonWrapper>
         <Button
           secondary
-          title={strings.buttonTitle}
+          title={t('guestsSelector.addButtonTitle')}
           leftIcon={<IconPlus />}
           onPress={handleAddRoom}
         />

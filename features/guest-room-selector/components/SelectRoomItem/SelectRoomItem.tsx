@@ -1,6 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Divider} from 'react-native-paper';
+import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 
 import {Colors} from '../../../../shared/lib/theme';
@@ -19,7 +18,6 @@ import {
   Container,
   StyledDivider,
   TitleWrapper,
-  ChildAgeWrapper,
   ChildAgeBlock,
   StyledVerticalDivider,
 } from './styles';
@@ -32,13 +30,8 @@ interface Props {
   onRemove: () => void;
 }
 
-const strings = {
-  adults: 'Adults',
-  children: 'Children',
-  removeButtonText: 'Remove room',
-};
-
 export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
+  const {t} = useTranslation();
   const childrenAges = item?.childrenAges ?? [];
   const room = item;
   const dispatch = useDispatch();
@@ -90,7 +83,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
         <Title1>Room {index + 1}</Title1>
         {index !== 0 && (
           <TextButton
-            text={strings.removeButtonText}
+            text={t('guestsSelector.removeButtonText')}
             color={Colors.valencia}
             onPress={onRemove}
           />
@@ -99,18 +92,17 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
 
       <GuestCounter
         count={item.adultsCount}
-        title={strings.adults}
+        title={t('guestsSelector.adults')}
         onSetCount={handleSetAdultsCount}
       />
 
       <GuestCounter
         count={item.childrenCount}
-        title={strings.children}
+        title={t('guestsSelector.children')}
         onSetCount={handleSetChildrenCount}>
         {childrenAges.length > 0 && (
           <ChildAgeBlock>
-            <StyledVerticalDivider
-            />
+            <StyledVerticalDivider />
             {item.childrenAges?.map(renderChildAge)}
           </ChildAgeBlock>
         )}

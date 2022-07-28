@@ -27,10 +27,12 @@ export const createFS = (fontSize: number, lineHeight: number) => ({
   lineHeight: addPx(lineHeight),
 });
 
-const regular = styled(ColoredText)({});
+const regular = styled(ColoredText)({
+  fontWeight: '400',
+});
 
 const bold = styled(ColoredText)({
-  fontWeight: 600,
+  fontWeight: '600',
 });
 
 const TitleBold = styled(bold)(createFS(16, 20));

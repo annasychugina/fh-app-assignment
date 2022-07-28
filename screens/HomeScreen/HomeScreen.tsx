@@ -1,5 +1,6 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useCallback} from 'react';
+import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
 import {EScreens, RootStackParamList} from '../../shared/config';
@@ -18,12 +19,8 @@ type Props = {
   navigation: StackNavigationProp<RootStackParamList>;
 };
 
-const strings = {
-  title: '"Find the perfect\n deal, always."',
-  buttonText: 'Select guests',
-};
-
 export const HomeScreen = ({navigation}: Props) => {
+  const {t} = useTranslation();
   const handlePress = useCallback(() => {
     navigation.navigate(EScreens.GUEST_AND_ROOM_SELECTOR_SCREEN);
   }, []);
@@ -32,10 +29,10 @@ export const HomeScreen = ({navigation}: Props) => {
       <ImageBackDrop source={require('../../assets/home.png')}>
         <Content>
           <StyledLogo />
-          <StyledTitle>{strings.title}</StyledTitle>
+          <StyledTitle>{t('home.title')}</StyledTitle>
           <ContentWrapper>
             <Button
-              title={strings.buttonText}
+              title={t('home.buttonText')}
               primary
               onPress={handlePress}
               leftIcon={<IconGuests />}

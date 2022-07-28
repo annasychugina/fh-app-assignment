@@ -18,7 +18,7 @@ export type Secondary = {secondary: true};
 export type Color = Primary | Floating | Secondary;
 
 type ButtonProps = {
-  title: string;
+  title: string | ReactNode;
   disabled?: boolean;
   onPress?: () => void;
   isFetching?: boolean;

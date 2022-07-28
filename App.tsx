@@ -1,11 +1,12 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {configureStore, EntityState} from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import {StatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native';
 import {Provider} from 'react-redux';
 import {combineReducers} from 'redux';
 import styled from 'styled-components/native';
 
+import {TranslationProvider} from './app/localization';
 import {Root} from './app/navigators/Root';
 import {
   GuestsInfoState,
@@ -29,12 +30,14 @@ export default function App() {
   return (
     <Provider store={store}>
       <StyledContainer>
-        <NavigationContainer>
-          <Container>
-            <StatusBar style="auto" />
-            <Root />
-          </Container>
-        </NavigationContainer>
+        <TranslationProvider>
+          <NavigationContainer>
+            <Container>
+              <StatusBar style="auto" />
+              <Root />
+            </Container>
+          </NavigationContainer>
+        </TranslationProvider>
       </StyledContainer>
     </Provider>
   );

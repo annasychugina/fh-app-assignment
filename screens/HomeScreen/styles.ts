@@ -18,7 +18,7 @@ export const ImageBackDrop = styled(ImageBackground)({
   height: '100%',
   width: '100%',
   backgroundColor: Colors.white,
-});
+}) as any;
 
 export const Content = styled.View({
   flex: 1,
