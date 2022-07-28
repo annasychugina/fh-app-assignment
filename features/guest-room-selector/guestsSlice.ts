@@ -21,17 +21,43 @@ export interface GuestsInfoState extends EntityState<GuestsInfo> {}
 
 const adapter = createEntityAdapter<GuestsInfo>();
 
-const initialState = adapter.getInitialState({});
+export const initialState = adapter.getInitialState();
+
+export const initialRoomItem = {
+  id: uuidv4(),
+  adultsCount: 2,
+  childrenCount: 0,
+};
+
+const filledState = adapter.upsertOne(initialState, initialRoomItem);
 
 const guestsSlice = createSlice({
   name: 'guests',
-  initialState,
+  initialState: filledState,
   reducers: {
+    reset: state => {
+      // remove all items
+      adapter.removeAll(state);
+      adapter.upsertOne(state, initialRoomItem);
+    },
     roomAdded: adapter.addOne,
     roomRemoved: adapter.removeOne,
     roomUpdated: (state, action: PayloadAction<any>) => {
       const room = adapter.getSelectors().selectById(state, action.payload.id);
 
+      // change adults count
+      if (action.payload.changes.adultsCount !== undefined) {
+        adapter.updateOne(state, {
+          id: action.payload.id,
+          changes: {
+            ...room,
+            ...action.payload.changes,
+          },
+        });
+        return;
+      }
+
+      // change children count
       if (
         room?.childrenCount === 0 ||
         (room?.childrenCount &&
@@ -117,4 +143,5 @@ export const {
   roomUpdated,
   childrenAgesUpdated,
   childrenAgeRemoved,
+  reset,
 } = guestsSlice.actions;

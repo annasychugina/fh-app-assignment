@@ -1,11 +1,13 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useCallback} from 'react';
 import {useTranslation, Trans} from 'react-i18next';
-import {Text} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {GuestRoomSelector} from '../../features/guest-room-selector';
-import {selectAllGuestsInfos} from '../../features/guest-room-selector/guestsSlice';
+import {
+  reset,
+  selectAllGuestsInfos,
+} from '../../features/guest-room-selector/guestsSlice';
 import {selectGuestCount} from '../../features/guest-room-selector/selectors';
 import {RootStackParamList} from '../../shared/config';
 import {Colors} from '../../shared/lib/theme';
@@ -23,17 +25,23 @@ type Props = {
 
 export const GuestAndRoomSelectorScreen = ({navigation}: Props) => {
   const {t} = useTranslation();
+  const dispatch = useDispatch();
   const guestCount = useSelector(selectGuestCount);
   const guestsInfos = useSelector(selectAllGuestsInfos);
   const handlePress = useCallback(() => {
-    console.log('PRESS');
+    console.log('Search guestsInfos:', guestsInfos);
   }, []);
+
+  const handleBackPress = () => {
+    dispatch(reset());
+    navigation.goBack();
+  };
   return (
     <Container>
       <Header
         title={t('guestsSelector.headerTitle')}
         backIcon={<IconClose color={Colors.blueRibbon} />}
-        onBackPress={navigation.goBack}
+        onBackPress={handleBackPress}
       />
       <SelectorWrapper>
         <GuestRoomSelector />

@@ -8,16 +8,20 @@ const {TitleBold} = Typography;
 interface GuestCounterProps {
   title: string;
   count: number;
+  minCount?: number;
+  maxCount?: number;
   onSetCount: (number: number) => void;
 }
 
-const MIN_COUNT = 0;
-const MAX_COUNT = 2;
+const MIN_DEFAULT_COUNT = 0;
+const MAX_DEFAULT_COUNT = 2;
 
 export const GuestCounter: React.FC<GuestCounterProps> = ({
   count,
   title,
   children,
+  minCount = MIN_DEFAULT_COUNT,
+  maxCount = MAX_DEFAULT_COUNT,
   onSetCount,
 }) => {
   const handleSetCount = (value: number) => {
@@ -30,8 +34,8 @@ export const GuestCounter: React.FC<GuestCounterProps> = ({
         <StyledView>
           <Counter
             count={count}
-            minVal={MIN_COUNT}
-            maxVal={MAX_COUNT}
+            minVal={minCount}
+            maxVal={maxCount}
             onSetCount={handleSetCount}
           />
         </StyledView>

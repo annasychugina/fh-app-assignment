@@ -6,6 +6,12 @@ import {Colors} from '../../../../shared/lib/theme';
 import {TextButton} from '../../../../shared/ui/TextButton/TextButton';
 import {Typography} from '../../../../shared/ui/Typography';
 import {
+  MIN_ADULTS_COUNT,
+  MAX_ADULTS_COUNT,
+  MIN_CHILDREN_COUNT,
+  MEX_CHILDREN_COUNT,
+} from '../../const';
+import {
   ChildrenAgeInfo,
   childrenAgeRemoved,
   childrenAgesUpdated,
@@ -94,11 +100,15 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
         count={item.adultsCount}
         title={t('guestsSelector.adults')}
         onSetCount={handleSetAdultsCount}
+        minCount={MIN_ADULTS_COUNT}
+        maxCount={MAX_ADULTS_COUNT}
       />
 
       <GuestCounter
         count={item.childrenCount}
         title={t('guestsSelector.children')}
+        minCount={MIN_CHILDREN_COUNT}
+        maxCount={MEX_CHILDREN_COUNT}
         onSetCount={handleSetChildrenCount}>
         {childrenAges.length > 0 && (
           <ChildAgeBlock>
