@@ -10,6 +10,9 @@ export const enTranslation = {
       childAgeSelectorText: 'Age',
       childAgeTitle: 'Child {{count}} age',
       addButtonTitle: 'Add room',
+      validation: {
+        errorChildrenAge: 'Chi'
+      },
     },
     home: {
       title: '"Find the perfect\n deal, always."',

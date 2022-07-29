@@ -11,6 +11,7 @@ interface GuestCounterProps {
   minCount?: number;
   maxCount?: number;
   onSetCount: (number: number) => void;
+  maxValDisabled?: boolean;
 }
 
 const MIN_DEFAULT_COUNT = 0;
@@ -22,6 +23,7 @@ export const GuestCounter: React.FC<GuestCounterProps> = ({
   children,
   minCount = MIN_DEFAULT_COUNT,
   maxCount = MAX_DEFAULT_COUNT,
+  maxValDisabled,
   onSetCount,
 }) => {
   const handleSetCount = (value: number) => {
@@ -37,6 +39,7 @@ export const GuestCounter: React.FC<GuestCounterProps> = ({
             minVal={minCount}
             maxVal={maxCount}
             onSetCount={handleSetCount}
+            maxValDisabled={maxValDisabled}
           />
         </StyledView>
       </ContentWrapper>

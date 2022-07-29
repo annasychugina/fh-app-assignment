@@ -11,6 +11,7 @@ interface Props {
   minVal?: number;
   maxVal?: number;
   onSetCount: (number: number) => void;
+  maxValDisabled?: boolean;
 }
 
 export const Counter: React.FC<Props> = ({
@@ -18,10 +19,11 @@ export const Counter: React.FC<Props> = ({
   minVal = 1,
   maxVal = 2,
   onSetCount,
+  maxValDisabled,
 }) => {
   const IncrementButton = () => {
     const onPress = () => {
-      if (!maxVal || count < maxVal) {
+      if (!maxValDisabled && (!maxVal || count < maxVal)) {
         onSetCount(count + 1);
       }
     };
@@ -29,7 +31,7 @@ export const Counter: React.FC<Props> = ({
       <StyledIconButton
         icon="plus"
         onPress={onPress}
-        color={count === Number(maxVal) ? Colors.paleSky : Colors.blueRibbon}
+        color={(count === Number(maxVal) || maxValDisabled) ? Colors.paleSky : Colors.blueRibbon}
       />
     );
   };

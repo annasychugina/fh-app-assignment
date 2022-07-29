@@ -10,6 +10,7 @@ import {
   MAX_ADULTS_COUNT,
   MIN_CHILDREN_COUNT,
   MEX_CHILDREN_COUNT,
+  MAX_GUESTS_COUNT_PER_ROOM,
 } from '../../const';
 import {
   ChildrenAgeInfo,
@@ -41,6 +42,8 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
   const childrenAges = item?.childrenAges ?? [];
   const room = item;
   const dispatch = useDispatch();
+  const maxValDisabled =
+    item.adultsCount + item.childrenCount >= MAX_GUESTS_COUNT_PER_ROOM;
   const handleSetAdultsCount = (count: number) => {
     dispatch(roomUpdated({id: item.id, changes: {adultsCount: count}}));
   };
@@ -102,6 +105,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
         onSetCount={handleSetAdultsCount}
         minCount={MIN_ADULTS_COUNT}
         maxCount={MAX_ADULTS_COUNT}
+        maxValDisabled={maxValDisabled}
       />
 
       <GuestCounter
@@ -109,7 +113,8 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
         title={t('guestsSelector.children')}
         minCount={MIN_CHILDREN_COUNT}
         maxCount={MEX_CHILDREN_COUNT}
-        onSetCount={handleSetChildrenCount}>
+        onSetCount={handleSetChildrenCount}
+        maxValDisabled={maxValDisabled}>
         {childrenAges.length > 0 && (
           <ChildAgeBlock>
             <StyledVerticalDivider />
