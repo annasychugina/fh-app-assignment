@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux';
 
-import {ChildrenAgeInfo, selectAllGuestsInfos} from '../guestsSlice';
+import {selectAllGuestsInfos, ChildrenAgeInfo} from '../../../entities/guests';
 
 type ErrorsChildrenAge = {roomId: string; error: string}[];
 

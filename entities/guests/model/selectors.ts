@@ -1,4 +1,4 @@
-import {RootState} from '../../App';
+import {RootState} from '../../../shared/config';
 import {selectAllGuestsInfos} from './guestsSlice';
 
 export const selectGuestCount = (state: RootState) => {

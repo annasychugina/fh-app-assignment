@@ -8,15 +8,9 @@ import styled from 'styled-components/native';
 
 import {TranslationProvider} from './app/localization';
 import {Root} from './app/navigators/Root';
-import {
-  GuestsInfoState,
-  guestsReducer,
-} from './features/guest-room-selector/guestsSlice';
+import {guestsReducer} from './entities/guests';
+import {RootState} from './entities/types';
 import {Colors} from './shared/lib/theme';
-
-export interface RootState {
-  guests: GuestsInfoState;
-}
 
 export const rootReducer = combineReducers<RootState>({
   guests: guestsReducer,

@@ -1,0 +1,1 @@
+export {GuestsCounter} from './GuestsCounter';

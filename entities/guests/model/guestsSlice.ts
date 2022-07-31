@@ -5,17 +5,13 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 
-import {RootState} from '../../App';
-import {uuidv4} from '../../shared/lib/utils/uuid';
-
-export type ChildrenAgeInfo = {id: string; age: number};
-
-export interface GuestsInfo {
-  id: string;
-  adultsCount: number;
-  childrenCount: number;
-  childrenAges?: ChildrenAgeInfo[];
-}
+import {RootState} from '../../../shared/config';
+import {uuidv4} from '../../../shared/lib/utils/uuid';
+import {
+  GuestsInfo,
+  ChildrenAgeRemovedPayload,
+  ChildrenAgeUpdatedPayload,
+} from '../types';
 
 export interface GuestsInfoState extends EntityState<GuestsInfo> {}
 
@@ -85,7 +81,10 @@ const guestsSlice = createSlice({
         });
       }
     },
-    childrenAgesUpdated: (state, action: PayloadAction<any>) => {
+    childrenAgesUpdated: (
+      state,
+      action: PayloadAction<ChildrenAgeUpdatedPayload>,
+    ) => {
       const room = adapter
         .getSelectors()
         .selectById(state, action.payload.roomId);
@@ -110,7 +109,10 @@ const guestsSlice = createSlice({
         },
       });
     },
-    childrenAgeRemoved: (state, action: PayloadAction<any>) => {
+    childrenAgeRemoved: (
+      state,
+      action: PayloadAction<ChildrenAgeRemovedPayload>,
+    ) => {
       const room = adapter
         .getSelectors()
         .selectById(state, action.payload.roomId);

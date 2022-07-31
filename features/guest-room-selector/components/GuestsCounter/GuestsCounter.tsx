@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Typography} from '../../../../shared/ui/Typography';
-import {Counter} from '../Counter/Counter';
+import {Counter} from '../Counter';
 import {Container, ContentWrapper, StyledView} from './styles';
 
 const {TitleBold} = Typography;
@@ -17,7 +17,7 @@ interface GuestCounterProps {
 const MIN_DEFAULT_COUNT = 0;
 const MAX_DEFAULT_COUNT = 2;
 
-export const GuestCounter: React.FC<GuestCounterProps> = ({
+export const GuestsCounter: React.FC<GuestCounterProps> = ({
   count,
   title,
   children,

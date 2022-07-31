@@ -1,5 +1,5 @@
-import uuid from 'react-native-uuid'
+import uuid from 'react-native-uuid';
 
-const uuidv4 = uuid.v4 as () => string
+const uuidv4 = uuid.v4 as () => string;
 
-export {uuidv4}
+export {uuidv4};

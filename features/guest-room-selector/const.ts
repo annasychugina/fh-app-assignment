@@ -5,3 +5,5 @@ export const MIN_CHILDREN_COUNT = 0;
 export const MEX_CHILDREN_COUNT = 3;
 
 export const MAX_GUESTS_COUNT_PER_ROOM = 5;
+
+export const MAX_ROOMS_COUNT = 7;

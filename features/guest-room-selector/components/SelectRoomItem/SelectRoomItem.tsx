@@ -2,6 +2,13 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 
+import {
+  roomUpdated,
+  childrenAgesUpdated,
+  childrenAgeRemoved,
+  ChildrenAgeInfo,
+  GuestsInfo,
+} from '../../../../entities/guests';
 import {Colors} from '../../../../shared/lib/theme';
 import {TextButton} from '../../../../shared/ui/TextButton/TextButton';
 import {Typography} from '../../../../shared/ui/Typography';
@@ -12,15 +19,8 @@ import {
   MEX_CHILDREN_COUNT,
   MAX_GUESTS_COUNT_PER_ROOM,
 } from '../../const';
-import {
-  ChildrenAgeInfo,
-  childrenAgeRemoved,
-  childrenAgesUpdated,
-  GuestsInfo,
-  roomUpdated,
-} from '../../guestsSlice';
-import {ChildAgeItem} from '../ChildAgeItem/ChildAgeItem';
-import {GuestCounter} from '../GuestsCounter/GuestsCounter';
+import {ChildAgeItem} from '../ChildAgeItem';
+import {GuestsCounter} from '../GuestsCounter';
 import {
   Container,
   StyledDivider,
@@ -99,7 +99,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
         )}
       </TitleWrapper>
 
-      <GuestCounter
+      <GuestsCounter
         count={item.adultsCount}
         title={t('guestsSelector.adults')}
         onSetCount={handleSetAdultsCount}
@@ -108,7 +108,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
         maxValDisabled={maxValDisabled}
       />
 
-      <GuestCounter
+      <GuestsCounter
         count={item.childrenCount}
         title={t('guestsSelector.children')}
         minCount={MIN_CHILDREN_COUNT}
@@ -121,7 +121,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
             {item.childrenAges?.map(renderChildAge)}
           </ChildAgeBlock>
         )}
-      </GuestCounter>
+      </GuestsCounter>
       <StyledDivider />
     </Container>
   );
