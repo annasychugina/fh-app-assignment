@@ -19,10 +19,13 @@ const adapter = createEntityAdapter<GuestsInfo>();
 
 export const initialState = adapter.getInitialState();
 
+export const UUID = uuidv4();
+
 export const initialRoomItem = {
-  id: uuidv4(),
+  id: UUID,
   adultsCount: 2,
   childrenCount: 0,
+  childrenAges: [],
 };
 
 const filledState = adapter.upsertOne(initialState, initialRoomItem);

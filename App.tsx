@@ -1,24 +1,13 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {configureStore} from '@reduxjs/toolkit';
 import {StatusBar} from 'expo-status-bar';
 import {SafeAreaView} from 'react-native';
 import {Provider} from 'react-redux';
-import {combineReducers} from 'redux';
 import styled from 'styled-components/native';
 
 import {TranslationProvider} from './app/localization';
 import {Root} from './app/navigators/Root';
-import {guestsReducer} from './entities/guests';
-import {RootState} from './entities/types';
 import {Colors} from './shared/lib/theme';
-
-export const rootReducer = combineReducers<RootState>({
-  guests: guestsReducer,
-});
-
-const store = configureStore({
-  reducer: rootReducer,
-});
+import {store} from './shared/store';
 
 export default function App() {
   return (

@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import {Colors} from '../../lib/theme';
+import {TestProps} from '../../lib/utils/TestUtils';
 import {rem} from '../helpers';
 
 export type Primary = {primary: true};
@@ -26,7 +27,8 @@ type ButtonProps = {
   style?: StyleProp<ViewStyle>;
   containerStyle?: StyleProp<ViewStyle>;
   leftIcon?: ReactNode;
-} & Color;
+} & Color &
+  TestProps;
 
 export const HEIGHT = 48;
 export const BORDER_RADIUS = 6;
@@ -63,7 +65,6 @@ export const Button: React.FC<ButtonProps> = props => {
         <Text style={textStyle} numberOfLines={1}>
           {props.title}
         </Text>
-
       </View>
     );
 
@@ -76,6 +77,7 @@ export const Button: React.FC<ButtonProps> = props => {
 
   return (
     <Pressable
+      testID={props.testID}
       disabled={props.disabled || props.isFetching || props.loading}
       style={[styles.container, buttonStyle, buttonContainerStyle]}
       onPress={props.onPress}>
@@ -92,9 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'stretch',
   },
-  containerOutlined: {
-
-  },
+  containerOutlined: {},
   content: {
     flex: 1,
     flexDirection: 'row',

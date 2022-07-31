@@ -42,6 +42,7 @@ export const GuestRoomSelector = ({onSearch}: Props) => {
     };
     return (
       <SelectRoomItem
+        testID={`room.${item.id}`}
         key={item.id}
         index={index}
         item={item}
@@ -76,6 +77,7 @@ export const GuestRoomSelector = ({onSearch}: Props) => {
           {guestsInfos?.length > 0 && guestsInfos.map(renderSelectRoomItem)}
           <ButtonWrapper>
             <Button
+              testID="addRoom"
               secondary
               title={t('guestsSelector.addButtonTitle')}
               leftIcon={<IconPlus />}
@@ -86,6 +88,7 @@ export const GuestRoomSelector = ({onSearch}: Props) => {
         </ScrollView>
       </SelectorWrapper>
       <Button
+        testID="buttonSearch"
         primary
         floating
         onPress={onSearch}

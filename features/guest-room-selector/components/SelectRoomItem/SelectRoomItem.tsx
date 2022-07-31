@@ -10,6 +10,7 @@ import {
   GuestsInfo,
 } from '../../../../entities/guests';
 import {Colors} from '../../../../shared/lib/theme';
+import {TestProps} from '../../../../shared/lib/utils/TestUtils';
 import {TextButton} from '../../../../shared/ui/TextButton/TextButton';
 import {Typography} from '../../../../shared/ui/Typography';
 import {
@@ -31,13 +32,18 @@ import {
 
 const {Title1} = Typography;
 
-interface Props {
+type Props = {
   item: GuestsInfo;
   index: number;
   onRemove: () => void;
-}
+} & TestProps;
 
-export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
+export const SelectRoomItem: React.FC<Props> = ({
+  testID,
+  item,
+  index,
+  onRemove,
+}) => {
   const {t} = useTranslation();
   const childrenAges = item?.childrenAges ?? [];
   const room = item;
@@ -87,7 +93,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
   };
 
   return (
-    <Container>
+    <Container testID={testID}>
       <TitleWrapper>
         <Title1>Room {index + 1}</Title1>
         {index !== 0 && (
@@ -100,6 +106,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
       </TitleWrapper>
 
       <GuestsCounter
+        testID="guestsCounter"
         count={item.adultsCount}
         title={t('guestsSelector.adults')}
         onSetCount={handleSetAdultsCount}
@@ -109,6 +116,7 @@ export const SelectRoomItem: React.FC<Props> = ({item, index, onRemove}) => {
       />
 
       <GuestsCounter
+        testID="childrenCounter"
         count={item.childrenCount}
         title={t('guestsSelector.children')}
         minCount={MIN_CHILDREN_COUNT}
