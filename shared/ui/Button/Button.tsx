@@ -63,6 +63,7 @@ export const Button: React.FC<ButtonProps> = props => {
         <Text style={textStyle} numberOfLines={1}>
           {props.title}
         </Text>
+
       </View>
     );
 
@@ -90,6 +91,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'stretch',
+  },
+  containerOutlined: {
+
   },
   content: {
     flex: 1,

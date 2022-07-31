@@ -1,19 +1,18 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
+import {View} from 'react-native';
+import {useSelector} from 'react-redux';
 import styled from 'styled-components/native';
 
+import {selectAllGuestsInfos} from '../../features/guest-room-selector/guestsSlice';
+import {selectGuestCount} from '../../features/guest-room-selector/selectors';
 import {EScreens, RootStackParamList} from '../../shared/config';
-import {Button} from '../../shared/ui/Button';
+import {Colors} from '../../shared/lib/theme';
+import {Header} from '../../shared/ui/Header';
+import {Logo} from '../../shared/ui/Logo';
 import {rem} from '../../shared/ui/helpers';
-import {IconGuests} from '../../shared/ui/icons/IconGuests';
-import {
-  Content,
-  ContentWrapper,
-  ImageBackDrop,
-  StyledLogo,
-  StyledTitle,
-} from './styles';
+import {Content, StyledEditButton, StyledInput, StyledTitle} from './styles';
 
 type Props = {
   navigation: StackNavigationProp<RootStackParamList>;
@@ -21,26 +20,40 @@ type Props = {
 
 export const HomeScreen = ({navigation}: Props) => {
   const {t} = useTranslation();
-  const handlePress = useCallback(() => {
+  const guestCount = useSelector(selectGuestCount);
+  const guestsInfos = useSelector(selectAllGuestsInfos);
+  const handleEditPress = useCallback(() => {
     navigation.navigate(EScreens.GUEST_AND_ROOM_SELECTOR_SCREEN);
   }, []);
   return (
-    <>
-      <ImageBackDrop source={require('../../assets/home.png')}>
-        <Content>
-          <StyledLogo />
-          <StyledTitle>{t('home.title')}</StyledTitle>
-          <ContentWrapper>
-            <Button
-              title={t('home.buttonText')}
-              primary
-              onPress={handlePress}
-              leftIcon={<IconGuests />}
-            />
-          </ContentWrapper>
-        </Content>
-      </ImageBackDrop>
-    </>
+    <Container>
+      <Header>
+        <Logo />
+      </Header>
+      <Content>
+        <StyledTitle>{t('home.title')}</StyledTitle>
+        <View>
+          <StyledInput
+            autoComplete={false}
+            placeholder=""
+            mode="outlined"
+            dense
+            editable={false}
+            outlineColor={Colors.spindle}
+            activeOutlineColor={Colors.spindle}
+            value={t('home.buttonText', {
+              guestCount,
+              roomsCount: guestsInfos?.length,
+            })}
+          />
+          <StyledEditButton
+            icon="pencil"
+            onPress={handleEditPress}
+            color={Colors.blueRibbon}
+          />
+        </View>
+      </Content>
+    </Container>
   );
 };
 
@@ -49,4 +62,10 @@ export const SelectorWrapper = styled.View({
   padding: rem(16),
   paddingTop: 0,
   marginBottom: rem(20),
+});
+
+export const Container = styled.View({
+  backgroundColor: Colors.white,
+  width: '100%',
+  height: '100%',
 });

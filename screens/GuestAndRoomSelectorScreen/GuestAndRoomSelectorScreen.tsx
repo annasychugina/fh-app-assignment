@@ -36,7 +36,8 @@ export const GuestAndRoomSelectorScreen = ({navigation}: Props) => {
       Alert.alert(validationErrors.childrenAgesErrors[0].error);
       return;
     }
-    console.log('Search guestsInfos:', guestsInfos);
+
+    navigation.goBack();
   }, [validationErrors]);
 
   const handleBackPress = () => {

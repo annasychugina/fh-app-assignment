@@ -1,8 +1,9 @@
 import React from 'react';
 
 import {Colors} from '../../../../shared/lib/theme';
+import {IconButton} from '../../../../shared/ui/Button';
 import {Typography} from '../../../../shared/ui/Typography';
-import {Container, ContentWrapper, StyledIconButton} from './styles';
+import {Container, ContentWrapper} from './styles';
 
 const {TitleBold} = Typography;
 
@@ -28,10 +29,14 @@ export const Counter: React.FC<Props> = ({
       }
     };
     return (
-      <StyledIconButton
+      <IconButton
         icon="plus"
         onPress={onPress}
-        color={(count === Number(maxVal) || maxValDisabled) ? Colors.paleSky : Colors.blueRibbon}
+        color={
+          count === Number(maxVal) || maxValDisabled
+            ? Colors.paleSky
+            : Colors.blueRibbon
+        }
       />
     );
   };
@@ -43,7 +48,7 @@ export const Counter: React.FC<Props> = ({
       }
     };
     return (
-      <StyledIconButton
+      <IconButton
         icon="minus"
         onPress={onPress}
         color={count === Number(minVal) ? Colors.paleSky : Colors.blueRibbon}

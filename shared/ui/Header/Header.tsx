@@ -36,11 +36,13 @@ export const Header = ({
       ) : (
         <StyledBlock />
       )}
-      <StyledContentView>
-        <TitleBold numberOfLines={1} flexShrink={1} color={color}>
-          {title}
-        </TitleBold>
-      </StyledContentView>
+      {!!title && (
+        <StyledContentView>
+          <TitleBold numberOfLines={1} flexShrink={1} color={color}>
+            {title}
+          </TitleBold>
+        </StyledContentView>
+      )}
       {children}
     </Container>
   </DropShadow>

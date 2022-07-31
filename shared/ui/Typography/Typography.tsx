@@ -35,11 +35,12 @@ const bold = styled(ColoredText)({
   fontWeight: '600',
 });
 
+
 const TitleBold = styled(bold)(createFS(16, 20));
 const TitleRegular = styled(regular)(createFS(16, 24));
 const TitleLabel = styled(bold)(createFS(16, 24));
 const Title1 = styled(bold)(createFS(18, 24));
-const Title2 = styled(regular)(createFS(26, 36));
+const Title2 = styled(bold)(createFS(21, 29));
 
 export const Typography = {
   TitleBold,
