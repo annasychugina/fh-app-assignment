@@ -30,7 +30,7 @@ export const SearchBox = ({padding = rem(16), onEdit}: Props) => {
           editable={false}
           outlineColor={Colors.spindle}
           activeOutlineColor={Colors.spindle}
-          value={t('home.buttonText', {
+          value={t('searchButtonText', {
             guestCount,
             roomsCount: guestsInfos?.length,
           })}

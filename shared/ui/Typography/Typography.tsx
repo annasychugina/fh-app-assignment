@@ -35,7 +35,6 @@ const bold = styled(ColoredText)({
   fontWeight: '600',
 });
 
-
 const TitleBold = styled(bold)(createFS(16, 20));
 const TitleRegular = styled(regular)(createFS(16, 24));
 const TitleLabel = styled(bold)(createFS(16, 24));

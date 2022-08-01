@@ -9,4 +9,5 @@ export enum Colors {
   valencia = '#D83B3B',
   spindle = '#BED2E9',
   paleSky = '#6A7886',
+  riverBad = '#44505F',
 }

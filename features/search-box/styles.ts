@@ -23,11 +23,12 @@ export const Content = styled.View(({padding}: {padding: number}) => ({
 export const StyledTitle = styled(Title2)({
   textAlign: 'center',
   marginBottom: rem(16),
+  fontWeight: '700',
 });
 
 export const StyledEditButton = styled(IconButton)({
   position: 'absolute',
-  right: rem(0),
+  right: rem(2),
   top: rem(8),
   width: rem(40),
   height: rem(40),

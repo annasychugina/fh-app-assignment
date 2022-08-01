@@ -1,9 +1,15 @@
 export const enTranslation = {
   translation: {
+    buttonSearch:
+      '<0>Search</0> <1>$t(roomsCount, {"count": {{roomsCount}} })</1> <2>•</2> <3>$t(guestCount, {"count": {{guestCount}} })</3>',
+    searchButtonText:
+      '$t(roomsCount, {"count": {{roomsCount}} }), $t(guestCount, {"count": {{guestCount}} })',
+    guestCount: '{{count}} guest',
+    guestCount_other: '{{count}} guests',
+    roomsCount: '{{count}} room',
+    roomsCount_other: '{{count}} rooms',
     guestsSelector: {
       headerTitle: 'Who is staying?',
-      buttonSearch:
-        '<0>Search</0> <1>{{roomsCount}} rooms</1> <2>•</2> <3>{{guestCount}} guests</3>',
       adults: 'Adults',
       children: 'Children',
       removeButtonText: 'Remove room',
@@ -13,7 +19,6 @@ export const enTranslation = {
     },
     home: {
       title: 'Find the right hotel\nat the best price',
-      buttonText: '{{guestCount}} Guests, {{roomsCount}} Rooms',
     },
   },
 };

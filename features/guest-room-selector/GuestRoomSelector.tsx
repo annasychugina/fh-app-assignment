@@ -95,7 +95,7 @@ export const GuestRoomSelector = ({onSearch}: Props) => {
         leftIcon={<IconSearch />}
         title={
           <Trans
-            i18nKey="guestsSelector.buttonSearch"
+            i18nKey="buttonSearch"
             values={{roomsCount: guestsInfos?.length, guestCount}}
             components={[
               <TitleLabel color={Colors.white} />,
