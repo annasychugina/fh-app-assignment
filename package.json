@@ -35,8 +35,6 @@
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "@react-native-community/eslint-config": "^3.0.3",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react-native": "^11.0.0",
     "@types/jest": "^28.1.6",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
