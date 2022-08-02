@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Svg, { Path} from 'react-native-svg';
-
-import {rem} from '../helpers';
+import Svg, {Path} from 'react-native-svg';
 
 type Props = {
   width?: number;
@@ -16,10 +14,8 @@ export const Logo = ({
   height = DEFAULT_HEIGHT,
   ...restProps
 }: Props) => {
-  const remWidth = rem(width);
-  const remHeight = rem(height);
   return (
-    <Svg width={remWidth} height={remHeight} fill="none" {...restProps}>
+    <Svg width={width} height={height} fill="none" {...restProps}>
       <Path
         fillRule="evenodd"
         clipRule="evenodd"

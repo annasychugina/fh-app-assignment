@@ -21,7 +21,7 @@ import {SelectRoomItem} from './components/SelectRoomItem';
 import {MAX_ROOMS_COUNT} from './const';
 import {ButtonWrapper, SelectorWrapper} from './styles';
 
-const {TitleLabel, TitleRegular} = Typography;
+const {TitleLabel2, TitleLabel} = Typography;
 
 type Props = {
   onSearch: () => void;
@@ -99,9 +99,9 @@ export const GuestRoomSelector = ({onSearch}: Props) => {
             values={{roomsCount: guestsInfos?.length, guestCount}}
             components={[
               <TitleLabel color={Colors.white} />,
-              <TitleRegular color={Colors.white} />,
+              <TitleLabel2 color={Colors.white} />,
               <TitleLabel color={Colors.white} />,
-              <TitleRegular color={Colors.white} />,
+              <TitleLabel2 color={Colors.white} />,
             ]}
           />
         }

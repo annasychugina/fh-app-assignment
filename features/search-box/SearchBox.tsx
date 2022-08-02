@@ -1,12 +1,20 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {View} from 'react-native';
+import {IconButton} from 'react-native-paper';
 import {useSelector} from 'react-redux';
 
 import {selectGuestCount, selectAllGuestsInfos} from '../../entities/guests';
 import {Colors} from '../../shared/lib/theme';
 import {rem} from '../../shared/ui/helpers';
-import {Content, StyledEditButton, StyledInput, StyledTitle} from './styles';
+import {
+  Content,
+  EditWrapper,
+  StyledInput,
+  StyledTitle,
+  AdornmentContainer,
+  InputContainer,
+  Input,
+} from './styles';
 
 type Props = {
   padding?: number;
@@ -21,26 +29,29 @@ export const SearchBox = ({padding = rem(16), onEdit}: Props) => {
   return (
     <Content padding={padding}>
       <StyledTitle>{t('home.title')}</StyledTitle>
-      <View>
-        <StyledInput
-          autoComplete={false}
-          placeholder=""
-          mode="outlined"
-          dense
-          editable={false}
-          outlineColor={Colors.spindle}
-          activeOutlineColor={Colors.spindle}
-          value={t('searchButtonText', {
-            guestCount,
-            roomsCount: guestsInfos?.length,
-          })}
-        />
-        <StyledEditButton
-          icon="pencil"
-          onPress={onEdit}
-          color={Colors.blueRibbon}
-        />
-      </View>
+      <StyledInput
+        autoComplete={false}
+        placeholder=""
+        mode="outlined"
+        dense
+        editable={false}
+        outlineColor={Colors.spindle}
+        activeOutlineColor={Colors.spindle}
+        value={t('searchButtonText', {
+          guestCount,
+          roomsCount: guestsInfos?.length,
+        })}
+        render={inputProps => (
+          <InputContainer>
+            <Input {...inputProps} />
+            <AdornmentContainer>
+              <EditWrapper onPress={onEdit}>
+                <IconButton icon="pencil" color={Colors.blueRibbon} />
+              </EditWrapper>
+            </AdornmentContainer>
+          </InputContainer>
+        )}
+      />
     </Content>
   );
 };

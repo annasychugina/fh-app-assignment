@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   secondary: {
     backgroundColor: Colors.aliceBlue,
     borderWidth: 1,
-
     borderColor: Colors.tropicalBlue,
     color: Colors.blueRibbon,
     fontSize: rem(16),
@@ -124,13 +123,13 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontSize: rem(16),
     lineHeight: 24,
-    fontWeight: '600',
+    fontFamily: 'Inter_600SemiBold',
   },
   blueRibbon: {
     color: Colors.blueRibbon,
     fontSize: rem(16),
     lineHeight: 24,
-    fontWeight: '600',
+    fontFamily: 'Inter_600SemiBold',
   },
   floating: {
     position: 'absolute',

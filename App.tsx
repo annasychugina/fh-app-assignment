@@ -6,10 +6,17 @@ import styled from 'styled-components/native';
 
 import {TranslationProvider} from './app/localization';
 import {Root} from './app/navigators/Root';
+import {useLoadResources} from './shared/lib/hooks';
 import {Colors} from './shared/lib/theme';
 import {store} from './shared/store';
 
 export default function App() {
+  const isReady = useLoadResources();
+
+  if (!isReady) {
+    return null;
+  }
+
   return (
     <Provider store={store}>
       <StyledContainer>

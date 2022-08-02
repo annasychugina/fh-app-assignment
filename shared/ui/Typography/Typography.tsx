@@ -28,23 +28,29 @@ export const createFS = (fontSize: number, lineHeight: number) => ({
 });
 
 const regular = styled(ColoredText)({
-  fontWeight: '400',
+  fontFamily: 'Inter_400Regular',
+});
+
+const semiBold = styled(ColoredText)({
+  fontFamily: 'Inter_600SemiBold',
 });
 
 const bold = styled(ColoredText)({
-  fontWeight: '600',
+  fontFamily: 'Inter_700Bold',
 });
 
-const TitleBold = styled(bold)(createFS(16, 20));
+const TitleBold = styled(semiBold)(createFS(16, 20));
 const TitleRegular = styled(regular)(createFS(16, 24));
-const TitleLabel = styled(bold)(createFS(16, 24));
-const Title1 = styled(bold)(createFS(18, 24));
+const TitleLabel = styled(semiBold)(createFS(16, 24));
+const TitleLabel2 = styled(regular)(createFS(16, 24));
+const Title1 = styled(semiBold)(createFS(18, 24));
 const Title2 = styled(bold)(createFS(21, 29));
 
 export const Typography = {
   TitleBold,
   TitleRegular,
   TitleLabel,
+  TitleLabel2,
   Title1,
   Title2,
 };

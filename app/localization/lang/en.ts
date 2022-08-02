@@ -3,11 +3,11 @@ export const enTranslation = {
     buttonSearch:
       '<0>Search</0> <1>$t(roomsCount, {"count": {{roomsCount}} })</1> <2>•</2> <3>$t(guestCount, {"count": {{guestCount}} })</3>',
     searchButtonText:
-      '$t(roomsCount, {"count": {{roomsCount}} }), $t(guestCount, {"count": {{guestCount}} })',
+      '$t(guestCount, {"count": {{guestCount}} }), $t(roomsCount, {"count": {{roomsCount}} })',
     guestCount: '{{count}} guest',
-    guestCount_other: '{{count}} guests',
+    guestCount_plural: '{{count}} guests',
     roomsCount: '{{count}} room',
-    roomsCount_other: '{{count}} rooms',
+    roomsCount_plural: '{{count}} rooms',
     guestsSelector: {
       headerTitle: 'Who is staying?',
       adults: 'Adults',

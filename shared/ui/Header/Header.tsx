@@ -5,12 +5,7 @@ import {Colors} from '../../lib/theme';
 import {Typography} from '../Typography';
 import {StyledHeaderBackButton} from './components';
 import {HEADER_HEIGHT} from './const';
-import {
-  StyledContentView,
-  Container,
-  StyledBlock,
-  DropShadowContainer,
-} from './styles';
+import {StyledContentView, Container, StyledBlock} from './styles';
 
 const {TitleBold} = Typography;
 
@@ -32,21 +27,19 @@ export const Header = ({
   showBackButton = true,
   color = Colors.black,
 }: PropsWithChildren<HeaderProps>) => (
-  <DropShadowContainer>
-    <Container style={style} height={HEADER_HEIGHT} paddingTop={6}>
-      {showBackButton ? (
-        <StyledHeaderBackButton onPress={onBackPress} icon={backIcon} />
-      ) : (
-        <StyledBlock />
-      )}
-      {!!title && (
-        <StyledContentView>
-          <TitleBold numberOfLines={1} flexShrink={1} color={color}>
-            {title}
-          </TitleBold>
-        </StyledContentView>
-      )}
-      {children}
-    </Container>
-  </DropShadowContainer>
+  <Container style={style} height={HEADER_HEIGHT} paddingTop={6}>
+    {showBackButton ? (
+      <StyledHeaderBackButton onPress={onBackPress} icon={backIcon} />
+    ) : (
+      <StyledBlock />
+    )}
+    {!!title && (
+      <StyledContentView>
+        <TitleBold numberOfLines={1} flexShrink={1} color={color}>
+          {title}
+        </TitleBold>
+      </StyledContentView>
+    )}
+    {children}
+  </Container>
 );

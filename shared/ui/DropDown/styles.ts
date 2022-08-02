@@ -18,7 +18,7 @@ export const StyledDropDown = styled(RNDropdown).attrs(() => ({
     textAlign: 'left',
     fontSize: rem(16),
     lineHeight: 20,
-    fontWeight: '600',
+    fontFamily: 'Inter_600SemiBold',
   },
   dropdownStyle: {backgroundColor: Colors.white},
 }))``;

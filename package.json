@@ -12,10 +12,12 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@expo-google-fonts/inter": "^0.2.2",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/stack": "^6.2.2",
     "@reduxjs/toolkit": "^1.8.3",
     "expo": "~44.0.0",
+    "expo-splash-screen": "^0.14.2",
     "expo-status-bar": "~1.2.0",
     "i18next": "^21.8.14",
     "react": "17.0.1",
@@ -23,7 +25,7 @@
     "react-i18next": "^11.18.3",
     "react-native": "0.64.3",
     "react-native-drop-shadow": "^0.0.4",
-    "react-native-gesture-handler": "^2.5.0",
+    "react-native-gesture-handler": "~2.1.0",
     "react-native-paper": "^4.12.3",
     "react-native-select-dropdown": "^2.0.4",
     "react-native-svg": "12.1.1",
